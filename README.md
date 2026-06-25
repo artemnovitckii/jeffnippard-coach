@@ -34,32 +34,33 @@ Coach: For most muscles the growth sweet spot is ~10–20 hard sets per week, an
   Claude Code `SessionStart` hook.
 - **Your data, scored against Jeff's criteria** — not invented thresholds.
 
-## Quickstart
+## Setup is one command
 
-> 🆕 **Never used a terminal? Start here:** [docs/GETTING-STARTED.md](docs/GETTING-STARTED.md) — a
-> plain-English, copy-paste, click-by-click guide to setting this up in Claude Code from scratch.
+Open this folder in **Claude Code** and say:
 
-1. **Install + auth the CLIs** and **load Jeff's channel** into NotebookLM — see
-   [docs/SETUP.md](docs/SETUP.md) (`scripts/load_channel.py` is included).
-2. **Test it's cited:** `python3 scripts/ask_cited.py "How much volume does Jeff recommend?"`
-3. **Add your data:** drop a Strong-app export at `data/strong_workouts.csv` (gitignored).
-4. **Coach yourself:** open the folder in Claude Code and say **"interview me"**.
+```
+set me up
+```
 
-Beginner, step-by-step: **[docs/GETTING-STARTED.md](docs/GETTING-STARTED.md)** · Technical reference:
-**[docs/SETUP.md](docs/SETUP.md)**.
+Claude installs the tools, walks you through a one-time Google login, loads Jeff's videos, and tests
+it — then say **`interview me`**. Prefer a terminal? Run **`bash setup.sh`** instead. Full beginner
+guide: [docs/GETTING-STARTED.md](docs/GETTING-STARTED.md) · Manual reference: [docs/SETUP.md](docs/SETUP.md).
 
 ## What's in here
 
 ```
 jeffnippard-coach/
 ├── README.md                       # this file
+├── setup.sh                        # one-command setup (installs, logs in, loads the channel)
 ├── CLAUDE.md                       # the Jeff coach persona/primer (the everything-cited rule)
 ├── CLAUDE.md.template              # blank persona for adapting to another expert
 ├── .notebooklm-id.example          # override the default notebook id (→ .notebooklm-id)
 ├── .claude/
 │   ├── settings.json               # SessionStart hook (auto-onboarding) — Claude Code
 │   ├── hooks/onboard.sh            # detects a fresh clone → starts the interview
-│   └── skills/coach-interview/     # the cited interview skill
+│   └── skills/
+│       ├── setup/                  # "set me up" — one-command install/setup
+│       └── coach-interview/        # the cited interview skill
 ├── scripts/
 │   ├── ask_cited.py                # the live-citation engine (defaults to the Jeff notebook)
 │   └── load_channel.py             # scrape a YouTube channel → bulk-load into NotebookLM
