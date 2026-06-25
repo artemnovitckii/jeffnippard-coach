@@ -36,13 +36,17 @@ Coach: For most muscles the growth sweet spot is ~10–20 hard sets per week, an
 
 ## Quickstart
 
+> 🆕 **Never used a terminal? Start here:** [docs/GETTING-STARTED.md](docs/GETTING-STARTED.md) — a
+> plain-English, copy-paste, click-by-click guide to setting this up in Claude Code from scratch.
+
 1. **Install + auth the CLIs** and **load Jeff's channel** into NotebookLM — see
-   [docs/SETUP.md](docs/SETUP.md) (uses the `notebooklm-coach` base skill's `load_channel.py`).
+   [docs/SETUP.md](docs/SETUP.md) (`scripts/load_channel.py` is included).
 2. **Test it's cited:** `python3 scripts/ask_cited.py "How much volume does Jeff recommend?"`
 3. **Add your data:** drop a Strong-app export at `data/strong_workouts.csv` (gitignored).
 4. **Coach yourself:** open the folder in Claude Code and say **"interview me"**.
 
-Full step-by-step (NotebookLM, Claude Code, hooks, data): **[docs/SETUP.md](docs/SETUP.md)**.
+Beginner, step-by-step: **[docs/GETTING-STARTED.md](docs/GETTING-STARTED.md)** · Technical reference:
+**[docs/SETUP.md](docs/SETUP.md)**.
 
 ## What's in here
 
