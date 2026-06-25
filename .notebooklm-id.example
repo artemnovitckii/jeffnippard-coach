@@ -1,0 +1,4 @@
+PASTE_YOUR_NOTEBOOK_ID_HERE
+# ^ Copy this file to `.notebooklm-id` and replace the first line with your NotebookLM
+#   notebook id (run `nlm notebook list` to find it). Lines starting with # are ignored
+#   by the example, but `.notebooklm-id` should contain ONLY the id on line 1.

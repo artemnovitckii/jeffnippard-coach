@@ -1,0 +1,14 @@
+# Personal data & generated plans — NEVER commit to this public repo
+/data/
+/private/
+/analysis/
+*whoop*
+*.csv
+
+# Your overridden notebook id (the .example stays in git)
+.notebooklm-id
+
+.DS_Store
+__pycache__/
+*.pyc
+/tmp/
