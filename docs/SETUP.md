@@ -42,12 +42,11 @@ Verify: `nlm notebook list` (an empty `[]` means authed but no notebooks yet).
 ## 3. Create the notebook and load Jeff's channel
 
 This repo defaults to the **Jeff Nippard** notebook. Build your own copy (you can only query notebooks
-your own account owns). Use the **`notebooklm` skill** (the `load_channel.py` workflow) or run it
-directly — swap the channel URL for any other expert:
+your own account owns). `scripts/load_channel.py` is included — swap the channel URL for any other expert:
 
 ```bash
 # a) scrape the channel's videos (stdlib only)
-python3 load_channel.py scrape \
+python3 scripts/load_channel.py scrape \
   --channel "https://www.youtube.com/@JeffNippard" \
   --output /tmp/jeff-videos.json
 
@@ -55,14 +54,14 @@ python3 load_channel.py scrape \
 notebooklm create "Jeff Nippard - Training Coach"
 
 # c) load the newest 300 episodes (Plus/Pro). Keep concurrency LOW to avoid failed "red" rows.
-uv run --with "notebooklm-py[browser]" python3 load_channel.py load \
+uv run --with "notebooklm-py[browser]" python3 scripts/load_channel.py load \
   --videos /tmp/jeff-videos.json \
   --notebook <notebook-id> \
   --count 300 --concurrency 1
 ```
 
-> `load_channel.py` comes from the [notebooklm-coach](https://github.com/artemnovitckii/notebooklm-coach)
-> base skill this coach builds on — clone that repo (or install the skill) to get it.
+> `scripts/load_channel.py` ships in this repo (vendored from the
+> [notebooklm-coach](https://github.com/artemnovitckii/notebooklm-coach) base skill, MIT).
 > On a **free** account use `--count 50`. After loading, sanity-check how many ingested cleanly:
 > ```bash
 > nlm source list <notebook-id> --json | python3 -c "import json,sys;d=json.load(sys.stdin);r=[s for s in d if s['title'].strip().startswith('http')];print(f'good {len(d)-len(r)}  red {len(r)}')"

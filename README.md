@@ -18,10 +18,11 @@ Coach: For most muscles the growth sweet spot is ~10–20 hard sets per week, an
        So, one question: how many days a week can you realistically train?
 ```
 
-> **Built on the [notebooklm-coach](https://github.com/artemnovitckii/notebooklm-coach) skill**,
-> which handles loading a YouTube channel into NotebookLM and cited Q&A. This repo is the opinionated
-> Jeff *coaching app* on top — the hard-citation interview, the auto-onboarding, the program builder.
-> Works for any expert: swap the notebook id and rewrite the persona (see [below](#use-it-for-a-different-expert)).
+> **Self-contained.** Channel-loading (`scripts/load_channel.py`) is vendored from the
+> [notebooklm-coach](https://github.com/artemnovitckii/notebooklm-coach) skill (MIT) — clone this
+> repo and you have everything. This is the opinionated Jeff *coaching app*: the hard-citation
+> interview, the auto-onboarding, the program builder. Works for any expert: swap the notebook id and
+> rewrite the persona (see [below](#use-it-for-a-different-expert)).
 
 ## Why it's different
 
@@ -56,7 +57,8 @@ jeffnippard-coach/
 │   ├── hooks/onboard.sh            # detects a fresh clone → starts the interview
 │   └── skills/coach-interview/     # the cited interview skill
 ├── scripts/
-│   └── ask_cited.py                # the live-citation engine (defaults to the Jeff notebook)
+│   ├── ask_cited.py                # the live-citation engine (defaults to the Jeff notebook)
+│   └── load_channel.py             # scrape a YouTube channel → bulk-load into NotebookLM
 └── docs/
     ├── SETUP.md                    # full setup: NotebookLM + nlm + notebooklm-py + Claude Code
     └── LIMITATIONS.md              # auth expiry, source caps, coverage gaps, what can break
